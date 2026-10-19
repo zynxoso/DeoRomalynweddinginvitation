@@ -1,0 +1,71 @@
+import { chromium } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
+import assert from 'node:assert/strict';
+import { mkdir, writeFile } from 'node:fs/promises';
+await mkdir('.review', { recursive: true });
+const browser = await chromium.launch({ channel: 'chrome', headless: true });
+const context = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
+const page = await context.newPage();
+const errors = [];
+page.on('pageerror', error => errors.push(error.message));
+await page.goto('http://localhost:3000', { waitUntil: 'networkidle' });
+await page.screenshot({ path: '.review/desktop-entrance.png' });
+const entranceAudit = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
+await page.getByRole('button', { name: 'Open invitation', exact: true }).click();
+await page.getByRole('dialog').waitFor({ state: 'hidden' });
+await page.waitForTimeout(1500);
+await page.screenshot({ path: '.review/desktop-hero.png' });
+for (const id of ['our-moments', 'the-day', 'dress-code', 'rsvp']) { await page.locator(`#${id}`).scrollIntoViewIfNeeded(); await page.waitForTimeout(1000); }
+await page.locator('.save-date').scrollIntoViewIfNeeded(); await page.waitForTimeout(1000); await page.locator('.closing').scrollIntoViewIfNeeded();
+await page.waitForTimeout(1000);
+await page.screenshot({ path: '.review/desktop-full.png', fullPage: true });
+await page.getByRole('button', { name: /^Enlarge photo:/ }).first().click();
+await page.getByRole('dialog', { name: 'Couple photographs' }).waitFor();
+await page.keyboard.press('ArrowRight');
+assert.match(await page.locator('.lightbox-controls').innerText(), /2 \/ 5/);
+await page.keyboard.press('Escape');
+await page.getByRole('button', { name: 'Preview response', exact: true }).click();
+await page.getByText('Please enter your full name.', { exact: true }).waitFor();
+await page.getByLabel('Your full name').fill('Test Guest');
+await page.getByLabel('Accepts with pleasure').check();
+await page.getByLabel('A little note for us').fill('Looking forward to celebrating with you!');
+await page.getByRole('button', { name: 'Preview response', exact: true }).click();
+await page.getByRole('status').waitFor();
+assert.match(await page.getByRole('status').innerText(), /has not been sent/);
+assert.equal(await page.getByRole('button', { name: 'Response previewed' }).isDisabled(), true);
+const mainAudit = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
+const response = await page.request.post('http://localhost:3000/api/rsvp', { data: { name: 'Test' } });
+assert.equal(response.status(), 503);
+const calendar = await page.request.get('http://localhost:3000/calendar');
+assert.match(await calendar.text(), /DTSTART;VALUE=DATE:20261223/);
+assert.match(await calendar.text(), /DTEND;VALUE=DATE:20261224/);
+for (const width of [390, 320, 768]) {
+  await page.setViewportSize({ width, height: 844 });
+  await page.goto('http://localhost:3000', { waitUntil: 'networkidle' });
+  await page.screenshot({ path: `.review/entrance-${width}.png` });
+  await page.getByRole('button', { name: 'View invitation', exact: true }).click();
+  await page.getByRole('dialog').waitFor({ state: 'hidden' });
+  await page.waitForTimeout(1400);
+  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true, `Horizontal overflow at ${width}px`);
+  await page.screenshot({ path: `.review/hero-${width}.png` });
+  if (width === 390) {
+    await page.getByRole('button', { name: 'Open menu' }).click();
+    await page.getByRole('navigation', { name: 'Mobile navigation' }).getByRole('link', { name: 'Dress code' }).click();
+    assert.equal(await page.getByRole('button', { name: 'Open menu' }).isVisible(), true);
+    for (const id of ['our-moments', 'the-day', 'dress-code', 'rsvp']) { await page.locator(`#${id}`).scrollIntoViewIfNeeded(); await page.waitForTimeout(1000); }
+    await page.locator('.save-date').scrollIntoViewIfNeeded(); await page.waitForTimeout(1000); await page.locator('.closing').scrollIntoViewIfNeeded(); await page.waitForTimeout(1000);
+    await page.screenshot({ path: '.review/mobile-full.png', fullPage: true });
+  }
+}
+await page.emulateMedia({ reducedMotion: 'reduce' });
+await page.goto('http://localhost:3000');
+await page.getByRole('button', { name: 'Open invitation', exact: true }).click();
+await page.getByRole('dialog').waitFor({ state: 'hidden', timeout: 2000 });
+await page.getByRole('button', { name: 'Open the envelope again' }).click();
+await page.getByRole('dialog', { name: 'A beautiful day.' }).waitFor();
+const summary = { errors, entranceViolations: entranceAudit.violations.map(v => ({ id: v.id, impact: v.impact, nodes: v.nodes.map(n => ({ target: n.target, failure: n.failureSummary })) })), mainViolations: mainAudit.violations.map(v => ({ id: v.id, impact: v.impact, nodes: v.nodes.map(n => ({ target: n.target, failure: n.failureSummary })) })) };
+await writeFile('.review/browser-results.json', JSON.stringify(summary, null, 2));
+console.log(JSON.stringify(summary, null, 2));
+await browser.close();
+assert.equal(errors.length, 0, 'Browser runtime errors');
+assert.equal(entranceAudit.violations.length + mainAudit.violations.length, 0, 'Accessibility violations');
