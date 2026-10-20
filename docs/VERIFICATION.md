@@ -5,12 +5,14 @@
 - ESLint: passed without warnings.
 - Logic checks: 2 passed, covering Philippine midnight and RSVP validation.
 - Browser checks: passed in Chrome at 320, 390, 768 and 1440 CSS pixels.
+- Photo update: all 12 gallery images loaded at each tested viewport. Separate 2× display checks confirmed that hero images meet the pixel resolution needed for their visible crops: 3,840 pixels delivered on desktop, 2,560 on tablet, and 1,600 / 1,200 on the tested phones.
+- The enlarged gallery photo retained its native 3,885 × 5,827 dimensions, and the full-resolution link points directly to that file. Desktop, portrait tablet and phone hero screenshots were visually reviewed.
 - Checked entrance opening and replay, menu navigation, gallery arrow/Escape controls, reduced motion, RSVP validation and repeat-preview prevention.
 - Calendar: December 23, 2026 all-day event, exclusive end date December 24.
 - RSVP API: returns 503 and never claims to store a response.
 - Runtime errors: none in the tested journeys.
 - axe WCAG A/AA: zero violations on the entrance and main page.
-- Mobile Lighthouse baseline: performance 85, best practices 100, CLS 0. The baseline accessibility score was 95 before the seal contrast was corrected; the subsequent axe check passes. SEO was 60 with intentional noindex and a modal invitation entrance. These local lab results are not a deployed-site measurement.
+- Earlier mobile Lighthouse baseline, before the full-resolution photo update: performance 85, best practices 100, CLS 0. The baseline accessibility score was 95 before the seal contrast was corrected; the subsequent axe check passes. SEO was 60 with intentional noindex and a modal invitation entrance. These local lab results are not a deployed-site measurement, and performance has not been remeasured for the larger photographs.
 - Production dependency audit: zero known vulnerabilities. The documented upstream development lint dependency advisory remains.
 
 Detailed screenshots and machine-readable reports are in .review. These checks ran locally; no Vercel deployment was performed.

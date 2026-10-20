@@ -10,10 +10,13 @@ import { RsvpForm } from "@/components/rsvp-form";
 
 export default function Home() {
   return <InvitationShell><main id="main">
-    <section id="home" className="hero section-container">
-      <div className="hero-copy"><p className="eyebrow">A day for love. A lifetime together.</p><h1 id="couple-names" tabIndex={-1}>{wedding.names.first}<span className="name-second"><i>&</i> {wedding.names.second}</span></h1><p className="hero-message">{wedding.welcome}</p><div className="hero-date"><span>{wedding.dayLabel}</span><strong>{wedding.dateLabel}</strong></div><a className="text-link" href="#the-day">Discover the day <ArrowUpRight size={16} /></a></div>
-      <div className="hero-portrait"><div className="portrait-outline" /><div className="portrait-image"><Image src={wedding.photos.hero.src} alt={wedding.photos.hero.alt} fill priority fetchPriority="high" sizes="(max-width: 760px) 86vw, 45vw" style={{ objectPosition: "48% 48%" }} /></div><span className="portrait-caption">It was always you.</span><span className="portrait-side">THE WEDDING OF DEO & ROMALYN</span></div>
-      <Botanical className="hero-flower" />
+    <section id="home" className="hero">
+      <div className="hero-backdrop"><Image src={wedding.photos.hero.src} alt={wedding.photos.hero.alt} fill loading="eager" fetchPriority="high" quality={95} sizes="(max-width: 760px) 173vw, (max-width: 1050px) 150vw, 100vw" /></div>
+      <div className="hero-shade" aria-hidden="true" />
+      <div className="hero-copy section-container">
+        <div className="hero-heading"><p className="eyebrow">A day for love. A lifetime together.</p><h1 id="couple-names" tabIndex={-1}>{wedding.names.first}<span className="name-second"><i>&</i> {wedding.names.second}</span></h1></div>
+        <div className="hero-details"><p className="hero-message">{wedding.welcome}</p><div className="hero-date"><span>{wedding.dayLabel}</span><strong>{wedding.dateLabel}</strong></div><a className="text-link" href="#the-day">Discover the day <ArrowUpRight size={16} /></a></div>
+      </div>
     </section>
 
     <section className="save-date" aria-labelledby="date-title"><Reveal className="section-container date-layout"><div className="date-invitation"><Flower2 size={30} strokeWidth={1} /><h2 id="date-title">Keep this day<br /><em>close to your heart.</em></h2><a className="text-link" href="/calendar" download="deo-and-romalyn.ics"><CalendarDays size={16} /> Save to calendar <ArrowUpRight size={15} /></a></div><div className="date-countdown"><p className="date-numerals">{wedding.dateNumerals[0]} <span>/</span> {wedding.dateNumerals[1]} <span>/</span> {wedding.dateNumerals[2]}</p><Countdown /></div></Reveal></section>
@@ -26,6 +29,6 @@ export default function Home() {
 
     <section id="rsvp" className="rsvp-section section-space"><div className="section-container rsvp-layout"><Reveal className="rsvp-copy"><span className="rsvp-script">Will you join us?</span><h2>A place in our day.<br /><em>A place in our hearts.</em></h2><p>We would love to celebrate with you. Online RSVP will open here once the invitation details are ready.</p><p className="rsvp-contact">For now, please contact us directly to let us know if you can make it.</p><div className="rsvp-signature">{wedding.names.first} <i>&</i> {wedding.names.second}</div><Botanical className="rsvp-flower" /></Reveal><Reveal delay={0.1}><RsvpForm /></Reveal></div></section>
 
-    <section className="closing section-container section-space"><Reveal className="closing-photo"><Image src={wedding.photos.closing.src} alt={wedding.photos.closing.alt} fill sizes="(max-width: 760px) 90vw, 60vw" /></Reveal><Reveal className="closing-copy"><Flower2 size={28} strokeWidth={1} /><h2>We can&apos;t wait<br /><em>to see you.</em></h2><p>{wedding.closing}</p><span className="closing-names">{wedding.names.first} & {wedding.names.second}</span><span className="closing-date">{wedding.dateLabel}</span></Reveal></section>
+    <section className="closing section-container section-space"><Reveal className="closing-photo"><Image src={wedding.photos.closing.src} alt={wedding.photos.closing.alt} fill quality={95} sizes="(max-width: 760px) 100vw, 70vw" /></Reveal><Reveal className="closing-copy"><Flower2 size={28} strokeWidth={1} /><h2>We can&apos;t wait<br /><em>to see you.</em></h2><p>{wedding.closing}</p><span className="closing-names">{wedding.names.first} & {wedding.names.second}</span><span className="closing-date">{wedding.dateLabel}</span></Reveal></section>
   </main></InvitationShell>;
 }

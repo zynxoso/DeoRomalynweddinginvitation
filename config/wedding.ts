@@ -21,15 +21,22 @@ export const wedding = {
   dressCode: "Formal or semi-formal attire in soft pastel colors.",
   rsvp: { mode: "preview" as const, deadline: null, allowedGuests: null as number | null },
   photos: {
-    hero: { src: "/images/hero.webp", alt: "Romalyn leaning on Deo as he kisses her forehead, seated together in the garden.", caption: "Together, always." },
+    hero: { src: "/images/high-resolution/forest-wedding.webp", alt: "Deo and Romalyn holding hands and looking at each other among the pine trees, dressed in white.", caption: "Together, always." },
     gallery: [
-      { src: "/images/garden-walk.webp", alt: "Deo bowing to kiss Romalyn's hand on a garden stairway in matching blush outfits.", caption: "Hand in hand." },
-      { src: "/images/laughter.webp", alt: "Deo and Romalyn laughing together on a garden bench in white outfits.", caption: "The little moments." },
-      { src: "/images/pink-portrait.webp", alt: "Romalyn resting her head on Deo's shoulder with a bouquet of pink roses.", caption: "Right here with you." },
-      { src: "/images/forest.webp", alt: "Deo and Romalyn sitting back to back on a sunlit forest lawn.", caption: "Our kind of afternoon." },
-      { src: "/images/blue.webp", alt: "Deo and Romalyn touching foreheads among the pine trees in powder blue outfits.", caption: "A moment for us." }
+      { src: "/images/high-resolution/garden-walk.webp", alt: "Deo bowing to kiss Romalyn's hand on a garden stairway in matching blush outfits.", caption: "Hand in hand." },
+      { src: "/images/high-resolution/laughter.webp", alt: "Deo and Romalyn laughing together on a garden bench in white outfits.", caption: "The little moments." },
+      { src: "/images/high-resolution/pink-portrait.webp", alt: "Romalyn resting her head on Deo's shoulder with a bouquet of pink roses.", caption: "Right here with you." },
+      { src: "/images/high-resolution/forest.webp", alt: "Deo and Romalyn sitting back to back on a sunlit forest lawn.", caption: "Our kind of afternoon." },
+      { src: "/images/high-resolution/blue.webp", alt: "Deo and Romalyn touching foreheads among the pine trees in powder blue outfits.", caption: "A moment for us." },
+      { src: "/images/high-resolution/hero.webp", alt: "Romalyn leaning on Deo as he kisses her forehead on a garden bench.", caption: "It was always you." },
+      { src: "/images/high-resolution/ring-detail.webp", alt: "A close view of Romalyn's ring as her hand rests on Deo's shoulder.", caption: "A promise to keep." },
+      { src: "/images/high-resolution/veil.webp", alt: "Romalyn laughing beside Deo as her veil lifts in the air among the pine trees.", caption: "You make me smile." },
+      { src: "/images/high-resolution/bamboo-walk.webp", alt: "Deo and Romalyn walking hand in hand along a path surrounded by tall bamboo.", caption: "Wherever we go." },
+      { src: "/images/high-resolution/flower-garden.webp", alt: "Deo and Romalyn together on a garden path surrounded by pink flowers.", caption: "Among the flowers." },
+      { src: "/images/high-resolution/forest-embrace.webp", alt: "Deo embracing Romalyn from behind as she smiles in a sunlit forest.", caption: "My favorite person." },
+      { src: "/images/high-resolution/blue-handkiss.webp", alt: "Deo kissing Romalyn's hand beneath the pine trees, both wearing powder blue.", caption: "With all my love." }
     ] satisfies WeddingPhoto[],
-    closing: { src: "/images/together.webp", alt: "Deo and Romalyn sharing a kiss in a clearing surrounded by pine trees.", caption: "A new chapter." }
+    closing: { src: "/images/high-resolution/together.webp", alt: "Deo and Romalyn sharing a kiss in a clearing surrounded by pine trees.", caption: "A new chapter." }
   },
   palette: [
     { name: "Sage", hex: "#A8BBA3" }, { name: "Blush", hex: "#F4D6D6" },

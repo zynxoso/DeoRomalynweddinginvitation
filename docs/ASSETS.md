@@ -1,6 +1,6 @@
 # Image sources
 
-The couple's photographs were supplied by the owner. Originals are preserved in `WEDDING PICTURES`. The production site uses seven optimized derivatives, plus a social preview assembled from the selected hero photograph and text.
+The couple's photographs were supplied by the owner. Originals are preserved in `WEDDING PICTURES`. The production site uses fourteen optimized derivatives, plus a social preview assembled from the seated portrait and text. The homepage background is `IMG_3929.jpg`, supplied from the owner's LightCraft Exports folder; its SHA-256 matches the existing project original. All fourteen photographs retain their native pixel dimensions (up to 6,000 pixels) and use WebP quality 96. The hero retains its full 5,992 × 3,995 pixels. Next.js serves responsive page versions at quality 95, with crop-aware sizing for high-density displays. The gallery viewer serves the native-resolution file directly and provides a full-resolution link. New asset URLs prevent older, smaller exports from being reused from browser caches. The visible detail is limited by the original photograph, and no generative changes were made to the couple's faces.
 
 The watercolor accent was created with the built-in imagegen tool and saved to `public/decorations/botanical.webp`. It is decorative artwork, not a photograph of either wedding venue.
 
