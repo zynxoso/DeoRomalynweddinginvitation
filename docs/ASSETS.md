@@ -4,6 +4,8 @@ The couple's photographs were supplied by the owner. Originals are preserved in 
 
 The watercolor accent was created with the built-in imagegen tool and saved to `public/decorations/botanical.webp`. It is decorative artwork, not a photograph of either wedding venue.
 
+The two distant pink-outfit gallery shots (`IMG_3736` and `IMG_3660`) were replaced with closer portraits from the same shoot: `IMG_3708` and `IMG_3683`. Both replacements retain 6,000 × 4,000 pixels. Their faces occupy more of the frame, so their details remain easier to see in the gallery cards. No sharpening or facial reconstruction was applied.
+
 Final generation prompt:
 
 > Create a refined botanical watercolor illustration for a luxury pastel garden wedding invitation website. Portrait 2:3 composition. A single airy asymmetrical flowering branch rising diagonally from lower left to upper right, delicate dusty blush wild roses, tiny ivory blossoms, soft sage eucalyptus leaves and fine olive stems. Hand painted fine art botanical stationery, subtle paper pigment, restrained and natural, detailed small leaves with generous negative space. Entire branch fully visible with margin around all sides. Isolated on solid warm ivory #FFF9F2 background, no text, no border, no lettering, no shadows, no mockup. This will be a decorative botanical accent alongside real couple photography.

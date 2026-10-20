@@ -31,8 +31,8 @@ export const wedding = {
       { src: "/images/high-resolution/hero.webp", alt: "Romalyn leaning on Deo as he kisses her forehead on a garden bench.", caption: "It was always you." },
       { src: "/images/high-resolution/ring-detail.webp", alt: "A close view of Romalyn's ring as her hand rests on Deo's shoulder.", caption: "A promise to keep." },
       { src: "/images/high-resolution/veil.webp", alt: "Romalyn laughing beside Deo as her veil lifts in the air among the pine trees.", caption: "You make me smile." },
-      { src: "/images/high-resolution/bamboo-walk.webp", alt: "Deo and Romalyn walking hand in hand along a path surrounded by tall bamboo.", caption: "Wherever we go." },
-      { src: "/images/high-resolution/flower-garden.webp", alt: "Deo and Romalyn together on a garden path surrounded by pink flowers.", caption: "Among the flowers." },
+      { src: "/images/high-resolution/pink-embrace.webp", alt: "Deo embracing Romalyn as they smile at the camera in pink outfits, with pine branches behind them.", caption: "Close to you." },
+      { src: "/images/high-resolution/pink-garden.webp", alt: "Deo and Romalyn holding hands and looking back at the camera beside a bank of pink flowers.", caption: "Among the flowers." },
       { src: "/images/high-resolution/forest-embrace.webp", alt: "Deo embracing Romalyn from behind as she smiles in a sunlit forest.", caption: "My favorite person." },
       { src: "/images/high-resolution/blue-handkiss.webp", alt: "Deo kissing Romalyn's hand beneath the pine trees, both wearing powder blue.", caption: "With all my love." }
     ] satisfies WeddingPhoto[],

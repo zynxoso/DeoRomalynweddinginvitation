@@ -17,8 +17,8 @@ const selection = [
   ['CAMP JOHN HAY - WHITE/IMG_3929.jpg', 'forest-wedding'],
   ['CAMP JOHN HAY - WHITE/IMG_3956.jpg', 'ring-detail'],
   ['CAMP JOHN HAY - WHITE/IMG_3970.jpg', 'veil'],
-  ['BOTANICAL - PINK/IMG_3736.jpg', 'bamboo-walk'],
-  ['BOTANICAL - PINK/IMG_3660.jpg', 'flower-garden'],
+  ['BOTANICAL - PINK/IMG_3708.jpg', 'pink-embrace'],
+  ['BOTANICAL - PINK/IMG_3683.jpg', 'pink-garden'],
   ['CAMP JOHN HAY - BROWN/IMG_4094.jpg', 'forest-embrace'],
   ['CAMP JOHN HAY - BLUE/IMG_4105.jpg', 'blue-handkiss']
 ];
