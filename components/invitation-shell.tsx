@@ -5,7 +5,7 @@ import { ArrowUpRight, Heart, Menu, X } from "lucide-react";
 import { Botanical } from "@/components/botanical";
 import { wedding } from "@/config/wedding";
 
-const links = [["The day", "#the-day"], ["Our moments", "#our-moments"], ["Dress code", "#dress-code"]];
+const links = [["The day", "#the-day"], ["Our moments", "#our-moments"], ["Entourage", "#entourage"], ["Dress code", "#dress-code"]];
 export function InvitationShell({ children }: { children: React.ReactNode }) {
   const [entrance, setEntrance] = useState(true);
   const [opening, setOpening] = useState(false);

@@ -7,6 +7,7 @@ import { Botanical } from "@/components/botanical";
 import { Countdown } from "@/components/countdown";
 import { Gallery } from "@/components/gallery";
 import { RsvpForm } from "@/components/rsvp-form";
+import { EntourageSection } from "@/components/entourage-section";
 
 export default function Home() {
   return <InvitationShell><main id="main">
@@ -24,6 +25,8 @@ export default function Home() {
     <section id="our-moments" className="moments section-container section-space"><Reveal><div className="section-heading"><p className="eyebrow">Our favorite place is together</p><h2>A little glimpse <em>of us.</em></h2><p>{wedding.story}</p></div></Reveal><Reveal delay={0.1}><Gallery /></Reveal></section>
 
     <section id="the-day" className="the-day section-space"><div className="section-container"><Reveal><div className="section-heading"><h2>One day. <em>So much love.</em></h2><p>{wedding.dayLabel}, {wedding.dateLabel}</p></div></Reveal><div className="venue-layout"><Reveal className="venue-card ceremony"><div className="venue-icon"><Flower2 size={33} strokeWidth={1} /></div><p className="venue-type">The ceremony</p><h3>{wedding.ceremony.name}</h3><p>Join us as we say &ldquo;I do.&rdquo;</p><div className="venue-time"><Clock3 size={15} />{wedding.ceremony.time ?? "Time to be announced"}</div>{wedding.ceremony.mapsUrl ? <a className="text-link" href={wedding.ceremony.mapsUrl} target="_blank" rel="noreferrer"><MapPin size={15} /> Get directions <ArrowUpRight size={15} /></a> : <p className="venue-directions"><MapPin size={15} /> Exact directions will be shared soon.</p>}<Botanical className="venue-flower" /></Reveal><div className="venue-connector" aria-hidden="true">&</div><Reveal className="venue-card reception" delay={0.12}><div className="venue-icon"><Wine size={33} strokeWidth={1} /></div><p className="venue-type">The reception</p><h3>{wedding.reception.name}</h3><p>A celebration with our favorite people.</p><div className="venue-time"><Clock3 size={15} />{wedding.reception.time ?? "Time to be announced"}</div>{wedding.reception.mapsUrl ? <a className="text-link" href={wedding.reception.mapsUrl} target="_blank" rel="noreferrer"><MapPin size={15} /> Get directions <ArrowUpRight size={15} /></a> : <p className="venue-directions"><MapPin size={15} /> Exact directions will be shared soon.</p>}</Reveal></div><p className="venue-note">We&apos;ll share the schedule here once the details are settled.</p></div></section>
+
+    <EntourageSection />
 
     <section id="dress-code" className="dress-code section-container section-space"><Reveal className="dress-layout"><div className="dress-illustration"><Botanical /><span>Soft shades,<br /><em>lovely company.</em></span></div><div className="dress-copy"><p className="eyebrow">A pastel garden celebration</p><h2>Come dressed<br /><em>in a little romance.</em></h2><p>{wedding.dressCode} Think flowing fabrics, light suits, and colors that feel at home in a garden.</p><div className="swatches">{wedding.palette.map(color => <div key={color.name}><span style={{ backgroundColor: color.hex }} /><small>{color.name}</small></div>)}</div><p className="dress-note">Choose a shade you love and something you feel good in.</p></div></Reveal></section>
 

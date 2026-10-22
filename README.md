@@ -22,6 +22,8 @@ npm start
 
 `config/wedding.ts` contains the names, date, timezone, venue names, event times, verified map links, invitation messages, selected photographs, dress palette and RSVP settings. Event times and maps remain `null` until confirmed. The calendar intentionally creates an all-day event. The countdown targets the start of December 23, 2026 in Asia/Manila, not an invented ceremony time.
 
+`config/entourage.ts` contains the confirmed entourage names and roles. The homepage shows this section between the venue details and dress code, with a direct `#entourage` menu link. Keep sponsor pairs together and retain people in every role they hold. Groomsmen and bridesmaids are separate lists, not procession pairings. Parent labels can be edited alongside their names. The section has no database or separate route.
+
 Photographs are in `public/images`. Original full-resolution photos stay in `WEDDING PICTURES` and are excluded from Git and deployment. All 65 provided images were reviewed using the four contact sheets in `.review`. Fourteen photos were selected across the four shoots. The full-width homepage background uses `IMG_3929.jpg`, preserved at the full 5,992 × 3,995 pixels supplied by the owner. Desktop, phone and portrait tablet layouts use separate framing to keep both people visible. The gallery contains 12 photographs, including the former hero portrait; the closing uses `IMG_4011-2.jpg`. The complete source list is in `scripts/prepare-assets.mjs`. All selected photos retain their original pixel dimensions in quality-96 WebP files under `public/images/high-resolution`. Responsive page images use quality 95 with sizes that account for their crops and high-density screens. The gallery viewer loads the full-resolution file and includes a link for closer inspection. No faces were generated or retouched.
 
 `scripts/prepare-assets.mjs` creates optimized WebP derivatives and the social sharing image from those originals. The generated botanical illustration lives in `public/decorations/botanical.webp`; see `docs/ASSETS.md` for its source and prompt. Typography is bundled locally with `next/font/local`, so guests do not need to connect to Google Fonts.
@@ -51,6 +53,8 @@ npm run build
 With the production server running and Google Chrome installed, run `node scripts/check-browser.mjs`. It checks desktop and mobile layouts, opening and replaying the envelope, reduced motion, gallery keyboard navigation, RSVP validation, duplicate preview protection, calendar dates, the disabled RSVP API and automated accessibility. Screenshots and the result JSON go into `.review`, which is excluded from Git.
 
 Run `node scripts/check-photos.mjs` to check image delivery at 2× pixel density on desktop, tablet and phone layouts. It verifies crop resolution, all 12 gallery images, full-resolution viewer dimensions and horizontal overflow.
+
+Run `node scripts/check-entourage.mjs` to verify the section and keyboard navigation at 320, 390, 768, 1024 and 1440 pixels, including sponsor pairs, name wrapping, reduced motion and accessibility.
 
 ## Repository and deployment
 

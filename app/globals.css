@@ -119,6 +119,48 @@ p { color:var(--muted); }
 .venue-flower { position:absolute; width:150px; left:-53px; bottom:-56px; opacity:.33; }
 .venue-connector { position:absolute; z-index:2; left:50%; top:46%; transform:translate(-50%,-50%); width:58px; height:58px; display:grid; place-items:center; border:1px solid #d8dccf; background:var(--ivory); border-radius:50%; font:italic 32px var(--font-serif); color:#768567; }
 .venue-note { text-align:center; margin-top:25px; font-size:11px; }
+.entourage { border-bottom:1px solid var(--line); }
+.entourage-container { max-width:960px; }
+.entourage-heading { position:relative; padding-top:112px; margin-bottom:42px; }
+.entourage-botanical { position:absolute; width:90px; top:-18px; left:50%; transform:translateX(-50%) rotate(12deg); }
+.entourage-row { display:grid; gap:36px 48px; padding-block:38px; border-top:1px solid var(--line); text-align:center; }
+.entourage-row:first-of-type { border-top:0; }
+.entourage-two { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.entourage-three { grid-template-columns:repeat(3,minmax(0,1fr)); gap:32px; }
+.entourage-group { min-width:0; }
+.entourage-group h3 { font:400 11px/1.6 var(--font-sans),sans-serif; color:#60705a; letter-spacing:1.6px; text-transform:uppercase; margin-bottom:21px; }
+.entourage-names { list-style:none; padding:0; margin:0; display:grid; gap:12px; }
+.entourage-names li { min-width:0; }
+.entourage-name { display:block; font:400 clamp(23px,2.1vw,28px)/1.3 var(--font-serif),Georgia,serif; overflow-wrap:break-word; }
+.entourage-label { display:block; color:var(--muted); font-size:10px; letter-spacing:.5px; margin-top:4px; }
+.entourage-couple { padding-top:8px; border-top:0; }
+.entourage-couple .entourage-names { gap:21px; }
+.entourage-couple .entourage-name { font-size:clamp(30px,3.2vw,40px); }
+.entourage-ampersand { display:block; font:italic 24px/1 var(--font-serif),Georgia,serif; color:#79866e; margin:0 0 10px; }
+.entourage-pair { gap:10px; }
+.entourage-flowers { padding-bottom:0; }
+.entourage-flowers .entourage-names { grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px 28px; }
+@media (max-width:1050px) {
+  .desktop-nav { display:none; }
+  .menu-button { display:block; }
+  .header-date { margin-left:auto; margin-right:18px; }
+  .mobile-nav { position:absolute; top:75px; left:0; right:0; padding:15px 25px 23px; background:var(--ivory); border-bottom:1px solid #ccd4c1; box-shadow:0 20px 25px #46573e0d; }
+  .mobile-nav a { display:flex; align-items:center; justify-content:space-between; padding:13px 5px; font-size:13px; }
+  .site-header .mobile-nav { color:var(--ink); }
+  .site-header .mobile-nav :focus-visible { outline-color:var(--ink); }
+}
+@media (min-width:1051px) { .mobile-nav { display:none; } }
+@media (max-width:760px) {
+  .entourage-heading { padding-top:100px; margin-bottom:32px; }
+  .entourage-botanical { width:80px; top:-12px; }
+  .entourage-row { grid-template-columns:minmax(0,1fr); padding-block:32px; gap:34px; }
+  .entourage-group h3 { margin-bottom:17px; font-size:11px; letter-spacing:1.2px; }
+  .entourage-name { font-size:25px; }
+  .entourage-couple { padding-top:0; }
+  .entourage-couple .entourage-name { font-size:32px; }
+  .entourage-flowers { padding-bottom:0; }
+  .entourage-flowers .entourage-names { grid-template-columns:minmax(0,1fr); gap:12px; }
+}
 .dress-layout { display:grid; grid-template-columns:.8fr 1.2fr; gap:80px; align-items:center; }
 .dress-illustration { height:420px; position:relative; }
 .dress-illustration>.botanical { width:280px; position:absolute; top:-20px; left:3%; opacity:.9; transform:rotate(-12deg); }
