@@ -1,10 +1,29 @@
 # Image sources
 
-The couple's photographs were supplied by the owner. Originals are preserved in `WEDDING PICTURES`. The production site uses fourteen optimized derivatives, plus a social preview assembled from the seated portrait and text. The homepage background is `IMG_3929.jpg`, supplied from the owner's LightCraft Exports folder; its SHA-256 matches the existing project original. All fourteen photographs retain their native pixel dimensions (up to 6,000 pixels) and use WebP quality 96. The hero retains its full 5,992 × 3,995 pixels. Next.js serves responsive page versions at quality 95, with crop-aware sizing for high-density displays. The gallery viewer serves the native-resolution file directly and provides a full-resolution link. New asset URLs prevent older, smaller exports from being reused from browser caches. The visible detail is limited by the original photograph, and no generative changes were made to the couple's faces.
+The couple's photographs were supplied by the owner. Sources are preserved in `WEDDING PICTURES` and `public/PICTURES TO BE REPLACED`; both folders are excluded from Git and deployment. The production site uses seventeen WebP photographs: fifteen gallery entries, one homepage background and one closing photograph. A social preview uses the updated seated portrait. WebP exports retain the supplied dimensions at quality 96; responsive page versions use quality 95. The viewer loads the native-resolution file directly. Changed photos have new URLs to avoid cached older exports. No additional facial retouching or generation was performed.
+
+The October 26 selection follows every labeled replacement:
+
+| Site placement/caption | Supplied source |
+| --- | --- |
+| Homepage background | HOME PAGE BG.jpg |
+| Hand in hand. | Hand in hand..CR2 |
+| The little moments. | The little moments.jpg |
+| Right here with you. | Right here with you.jpg |
+| Our kind of afternoon. | Our kind of afternoon.jpg |
+| A moment for us. | A moment for us.jpg |
+| It was always you. | It was always you.jpg |
+| Close to you. | CLOSE TO YOU.jpg |
+| My favorite person. | MY FAVORITE PERSON.jpg |
+| With all my love. | WITH ALL MY LOVE.jpg |
+
+The CR2's first TIFF directory contains a full-size 6,000 × 4,000 camera JPEG. The preparation script validates and extracts that embedded image; it does not attempt RAW sensor development or use the small thumbnail. `IMG_3747.CR2` duplicates the labeled file and is not added twice.
+
+Three additional gallery poses were selected: `MEITU_20261020_135731873.jpg` (bamboo portrait), `MEITU_20261025_073307475.jpg` (white outfits with bouquet), and `MEITU_20261025_084642306.jpg` (seated beneath the pines). The veil and closing images also use the matching supplied versions, `MEITU_20261025_073432262.jpg` and `MEITU_20261025_085532158.jpg`. The ring detail and pink-flower garden portrait retain their previous sources. All forty replacement-folder files were reviewed; contact sheets are saved in `.review`.
+
+Dress-code colors were sampled from the six flat swatch areas of the owner's latest reference: blush pink `#F8CECF`, soft peach `#F7D9BF`, butter yellow `#FDEDA2`, lavender `#DBCEE8`, sky blue `#BCDFF6`, and mint cream `#CEDDBE`.
 
 The watercolor accent was created with the built-in imagegen tool and saved to `public/decorations/botanical.webp`. It is decorative artwork, not a photograph of either wedding venue.
-
-The two distant pink-outfit gallery shots (`IMG_3736` and `IMG_3660`) were replaced with closer portraits from the same shoot: `IMG_3708` and `IMG_3683`. Both replacements retain 6,000 × 4,000 pixels. Their faces occupy more of the frame, so their details remain easier to see in the gallery cards. No sharpening or facial reconstruction was applied.
 
 Final generation prompt:
 

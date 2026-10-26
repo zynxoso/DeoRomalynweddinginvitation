@@ -7,5 +7,6 @@ node_modules/
 *.tsbuildinfo
 .review/
 WEDDING PICTURES/
+public/PICTURES TO BE REPLACED/
 playwright-report/
 test-results/
