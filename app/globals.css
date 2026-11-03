@@ -215,10 +215,10 @@ textarea { resize:vertical; max-height:250px; }
 .site-footer { min-height:100px; padding:25px 0; display:flex; gap:25px; justify-content:space-between; align-items:center; border-top:1px solid var(--line); width:min(1320px,calc(100% - 100px)); margin:auto; }
 .site-footer>span { font-size:10px; }
 .site-footer button { display:flex; align-items:center; gap:10px; background:none; border:0; padding:10px 0; font-size:10px; }
-.entrance { position:fixed; inset:0; z-index:50; background:var(--ivory); display:flex; flex-direction:column; align-items:center; justify-content:space-between; padding:30px 24px 25px; overflow:auto; min-height:100dvh; }
+.entrance { position:fixed; inset:0; z-index:50; background:var(--ivory); display:flex; flex-direction:column; align-items:center; justify-content:space-between; padding:30px 24px 25px; overflow-y:auto; overflow-x:hidden; min-height:100dvh; }
 .entrance-top { display:flex; flex-direction:column; align-items:center; gap:15px; z-index:1; }
 .entrance-top>span:last-child { font-size:8px; letter-spacing:3px; }
-.entrance-content { position:relative; z-index:1; text-align:center; padding-block:25px; }
+.entrance-content { position:relative; z-index:1; text-align:center; padding-block:25px; width:100%; flex-shrink:0; }
 .entrance-content .eyebrow { margin-bottom:15px; }
 .entrance h1 { font-size:clamp(38px,4.3vw,59px); letter-spacing:-1.6px; }
 .entrance h1 em { line-height:1.2; }
@@ -227,19 +227,20 @@ textarea { resize:vertical; max-height:250px; }
 .entrance-skip { display:block; margin:10px auto 0; padding:8px 15px; border:0; background:transparent; font-size:10px; text-decoration:underline; text-underline-offset:4px; }
 .entrance-flower-left { width:340px; position:absolute; bottom:-100px; left:-75px; transform:rotate(19deg); opacity:.8; }
 .entrance-flower-right { width:300px; position:absolute; top:-100px; right:-55px; transform:rotate(195deg); opacity:.7; }
-.envelope { width:340px; height:205px; position:relative; margin:42px auto 30px; perspective:1000px; filter:drop-shadow(0 15px 22px #68775b17); }
+.envelope-stage { --envelope-height:205px; --letter-lift:100px; width:min(340px,100%); padding-top:calc(var(--envelope-height) * .56 + 16px); margin:22px auto 30px; }
+.envelope { width:100%; height:var(--envelope-height); position:relative; perspective:1000px; filter:drop-shadow(0 15px 22px #68775b17); }
 .envelope-back { position:absolute; inset:0; background:#dce2d3; border:1px solid #c4cdb7; border-radius:3px; z-index:0; }
-.envelope-letter { position:absolute; z-index:1; inset:12px 18px 14px; background:#fffcf7; padding-top:40px; border:1px solid #d8d8c8; display:flex; align-items:center; flex-direction:column; transition:transform .8s .35s cubic-bezier(.22,1,.36,1); }
+.envelope-letter { position:absolute; z-index:1; inset:12px 18px 14px; background:#fffcf7; padding-top:24px; border:1px solid #d8d8c8; display:flex; align-items:center; flex-direction:column; transition:transform .75s .55s cubic-bezier(.22,1,.36,1); }
 .envelope-letter span { font:italic 29px var(--font-serif); }
 .envelope-letter small { font-size:8px; letter-spacing:1px; margin-top:8px; }
 .envelope-front { position:absolute; inset:0; z-index:3; background:#e8ecdf; clip-path:polygon(0 0,50% 53%,100% 0,100% 100%,0 100%); border:1px solid #c7cfbb; }
 .envelope-front::after { content:""; position:absolute; inset:0; background:linear-gradient(148deg,transparent 49.8%,#cbd2bf 50%,transparent 50.5%),linear-gradient(212deg,transparent 49.8%,#cbd2bf 50%,transparent 50.5%); opacity:.6; }
-.envelope-flap { position:absolute; inset:0; z-index:4; clip-path:polygon(0 0,100% 0,50% 56%); background:linear-gradient(175deg,#f0f2e9,#dbe2d0); transform-origin:top; transition:transform .75s cubic-bezier(.22,1,.36,1); backface-visibility:hidden; }
+.envelope-flap { position:absolute; inset:0; z-index:4; clip-path:polygon(0 0,100% 0,50% 56%); background:linear-gradient(175deg,#f0f2e9,#dbe2d0); transform-origin:top; transition:transform .65s cubic-bezier(.22,1,.36,1),z-index 0s .25s; }
 .wax-seal { position:absolute; z-index:5; top:77px; left:calc(50% - 28px); width:56px; height:56px; display:flex; align-items:center; justify-content:center; border-radius:48% 53% 46% 51%; background:#8c9d7d; border:4px solid #96a786; box-shadow:0 3px 7px #64715630,inset 0 0 0 1px #6d7f5e; color:#182616; font:18px var(--font-serif); transition:opacity .25s,transform .5s; }
 .wax-seal span { font-size:12px; font-style:italic; }
-.is-opening .envelope-flap { transform:rotateX(180deg); }
+.is-opening .envelope-flap { transform:rotateX(-180deg); z-index:0; }
 .is-opening .wax-seal { opacity:0; transform:translateY(25px); }
-.is-opening .envelope-letter { transform:translateY(-85px); }
+.is-opening .envelope-letter { transform:translateY(calc(-1 * var(--letter-lift))); }
 .petals { pointer-events:none; position:absolute; inset:0; overflow:hidden; }
 .petals i { position:absolute; top:25%; width:12px; height:20px; border-radius:80% 0 80% 20%; background:#e8c6c7; opacity:0; animation:petal-fall 1.8s ease-out both; }
 @keyframes petal-fall { 0% { opacity:0; transform:translateY(-50px) rotate(0); } 20% { opacity:.7; } 100% { opacity:0; transform:translate(70px,55vh) rotate(150deg); } }
@@ -345,7 +346,7 @@ textarea { resize:vertical; max-height:250px; }
   .entrance-top { gap:10px; }.entrance-top>span:last-child { font-size:7px; }
   .entrance h1 { font-size:42px; }
   .entrance-content .eyebrow { font-size:8px; }
-  .envelope { width:285px; height:180px; margin:38px auto 27px; }
+  .envelope-stage { --envelope-height:180px; --letter-lift:90px; width:min(285px,100%); margin:18px auto 27px; }
   .wax-seal { top:66px; }
   .entrance-flower-left { width:210px; left:-90px; bottom:-35px; opacity:.65; }
   .entrance-flower-right { width:180px; top:-45px; right:-65px; opacity:.6; }
@@ -366,7 +367,7 @@ textarea { resize:vertical; max-height:250px; }
   .hero-copy { padding-top:100px; }
   .hero h1 { font-size:88px; }
 }
-@media (max-width:360px) { .header-date { letter-spacing:.8px; } .hero h1 { font-size:43px; } .envelope { width:250px; height:160px; } .wax-seal { top:55px; } .entrance h1 { font-size:36px; } .entrance-date span { padding-inline:5px; } }
+@media (max-width:360px) { .header-date { letter-spacing:.8px; } .hero h1 { font-size:43px; } .envelope-stage { width:min(250px,100%); --envelope-height:160px; } .wax-seal { top:55px; } .entrance h1 { font-size:36px; } .entrance-date span { padding-inline:5px; } }
 @media (prefers-reduced-motion:no-preference) {
   .guest-view.is-open .hero-copy { animation:hero-enter 1s .1s both; }
   .guest-view.is-open .hero-backdrop { animation:photo-enter 1.6s ease-out both; }

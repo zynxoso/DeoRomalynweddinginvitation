@@ -23,10 +23,11 @@ export function InvitationShell({ children }: { children: React.ReactNode }) {
   }, [entrance]);
   useEffect(() => {
     if (!opening) return;
-    const id = setTimeout(() => { setEntrance(false); setOpening(false); }, reduce ? 0 : 1500);
+    // Keep the stationery open while AnimatePresence fades the dialog out.
+    const id = setTimeout(() => setEntrance(false), reduce ? 0 : 1600);
     return () => clearTimeout(id);
   }, [opening, reduce]);
-  function replay() { window.scrollTo({ top: 0, behavior: "instant" }); setEntrance(true); setMenu(false); }
+  function replay() { window.scrollTo({ top: 0, behavior: "instant" }); setOpening(false); setEntrance(true); setMenu(false); }
   return <>
     <div inert={entrance} className={`guest-view ${entrance ? "" : "is-open"}`}>
       <a href="#main" className="skip-link">Skip to invitation</a>
@@ -47,7 +48,7 @@ export function InvitationShell({ children }: { children: React.ReactNode }) {
       <Botanical className="entrance-flower-left" /><Botanical className="entrance-flower-right" />
       <div className="entrance-top"><span className="monogram">D<span>&</span>R</span><span>A WEDDING INVITATION</span></div>
       <div className="entrance-content"><p className="eyebrow">For you, with love</p><h1 id="entrance-title">A beautiful day.<br /><em>Our favorite people.</em></h1>
-        <div className={`envelope ${opening ? "is-opening" : ""}`} aria-hidden="true"><div className="envelope-letter"><span>Deo & Romalyn</span><small>{wedding.dateLabel}</small></div><div className="envelope-back" /><div className="envelope-front" /><div className="envelope-flap" /><div className="wax-seal">D<span>&</span>R</div></div>
+        <div className="envelope-stage" aria-hidden="true"><div className={`envelope ${opening ? "is-opening" : ""}`}><div className="envelope-letter"><span>Deo & Romalyn</span><small>{wedding.dateLabel}</small></div><div className="envelope-back" /><div className="envelope-front" /><div className="envelope-flap" /><div className="wax-seal">D<span>&</span>R</div></div></div>
         <button ref={openButton} onClick={() => setOpening(true)} disabled={opening} className="button primary">{opening ? "With love…" : "Open invitation"}<ArrowUpRight size={16} /></button>
         <button ref={skipButton} className="entrance-skip" onClick={() => setEntrance(false)}>View invitation</button>
       </div><p className="entrance-date">{wedding.dayLabel} <span>·</span> {wedding.dateLabel}</p>

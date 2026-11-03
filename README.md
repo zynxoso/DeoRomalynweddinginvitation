@@ -53,6 +53,8 @@ Run `node scripts/check-photos.mjs` to check image delivery at 2× pixel density
 
 Run `node scripts/check-entourage.mjs` to verify the section and keyboard navigation at 320, 390, 768, 1024 and 1440 pixels, including sponsor pairs, name wrapping, reduced motion and accessibility.
 
+Run `node scripts/check-envelope.mjs` to check animation frames for heading overlap and reverse motion during exit, plus replay, keyboard controls and reduced motion. It uses localhost:3000 by default; `ENVELOPE_TEST_URL` overrides the address.
+
 ## Repository and deployment
 
 The source repository is [zynxoso/DeoRomalynweddinginvitation](https://github.com/zynxoso/DeoRomalynweddinginvitation). Vercel deployment has not been configured.
