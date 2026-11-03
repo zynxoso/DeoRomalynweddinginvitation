@@ -14,7 +14,7 @@ export const wedding = {
   headerDate: new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: timezone }).format(dateValue).toUpperCase(),
   dateNumerals: [date.slice(5, 7), date.slice(8, 10), date.slice(2, 4)],
   ceremony: { name: "Luntian Garden", time: null, mapsUrl: null } as WeddingVenue,
-  reception: { name: "Luntian Osias Farm and Resort Function Hall", time: null, mapsUrl: null } as WeddingVenue,
+  reception: { name: "Luntiang Oasis Farm and Resort", time: null, mapsUrl: null } as WeddingVenue,
   welcome: "Together with our families, we invite you to celebrate our wedding.",
   story: "A few of our favorite moments, and a new one to look forward to with you.",
   closing: "The day will be all the more special with you there. Thank you for being part of our lives and this next chapter.",
