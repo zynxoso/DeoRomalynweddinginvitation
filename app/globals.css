@@ -128,7 +128,9 @@ p { color:var(--muted); }
 .entourage-two { grid-template-columns:repeat(2,minmax(0,1fr)); }
 .entourage-three { grid-template-columns:repeat(3,minmax(0,1fr)); gap:32px; }
 .entourage-group { min-width:0; }
-.entourage-group h3 { font:400 11px/1.6 var(--font-sans),sans-serif; color:#60705a; letter-spacing:1.6px; text-transform:uppercase; margin-bottom:21px; }
+.entourage-row-title { grid-column:1 / -1; }
+.entourage-row-title h3 { font-size:34px; }
+.entourage-group :is(h3,h4) { font:400 11px/1.6 var(--font-sans),sans-serif; color:#60705a; letter-spacing:1.6px; text-transform:uppercase; margin:0 0 21px; }
 .entourage-names { list-style:none; padding:0; margin:0; display:grid; gap:12px; }
 .entourage-names li { min-width:0; }
 .entourage-name { display:block; font:400 clamp(23px,2.1vw,28px)/1.3 var(--font-serif),Georgia,serif; overflow-wrap:break-word; }
@@ -154,7 +156,7 @@ p { color:var(--muted); }
   .entourage-heading { padding-top:100px; margin-bottom:32px; }
   .entourage-botanical { width:80px; top:-12px; }
   .entourage-row { grid-template-columns:minmax(0,1fr); padding-block:32px; gap:34px; }
-  .entourage-group h3 { margin-bottom:17px; font-size:11px; letter-spacing:1.2px; }
+  .entourage-group :is(h3,h4) { margin-bottom:17px; font-size:11px; letter-spacing:1.2px; }
   .entourage-name { font-size:25px; }
   .entourage-couple { padding-top:0; }
   .entourage-couple .entourage-name { font-size:32px; }

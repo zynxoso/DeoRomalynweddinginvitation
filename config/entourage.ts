@@ -12,6 +12,7 @@ export interface EntourageGroup {
 
 export interface EntourageRow {
   id: string;
+  title?: string;
   layout: "couple" | "two" | "three" | "flowers";
   groups: EntourageGroup[];
 }
@@ -33,6 +34,26 @@ export const entourage: EntourageRow[] = [
     { id: "groom-parents", title: "Parents of the Groom", members: [
       { name: "Cresencia C. Martinez", label: "Mother" },
       { name: "Diomedes B. Martinez", label: "Father" }
+    ] }
+  ] },
+  { id: "principal-sponsors", title: "Principal Sponsors", layout: "two", groups: [
+    { id: "ninong", title: "Ninong", members: [
+      { name: "Francico Gabriel" }, { name: "Michael Fausino" },
+      { name: "Emilio Pacheco" }, { name: "Cristito Garbin" },
+      { name: "Allan Mejia" }, { name: "Victorino Pader" },
+      { name: "Eric Julian" }, { name: "Adriano Catalan" },
+      { name: "Fernando Mangalindan" }, { name: "Teodoro Pagaduan" },
+      { name: "Rady Encarnacion" }, { name: "Joven Calunsag" },
+      { name: "Gil Ventura" }, { name: "Ver Valdez" }
+    ] },
+    { id: "ninang", title: "Ninang", members: [
+      { name: "Rosallie Gabriel" }, { name: "Maria Rosario Faustino" },
+      { name: "Baby Esmas" }, { name: "Josie Tolentino" },
+      { name: "Lina Nonato" }, { name: "Marieta Mallari" },
+      { name: "Pinky Guilermo" }, { name: "Eunice Catalan" },
+      { name: "Angie Lozano" }, { name: "Ofelia Ongan" },
+      { name: "Ofelia Liwanag" }, { name: "Rosalie Calunsag" },
+      { name: "Maria Luisa Barawid" }, { name: "Marivic Reyes" }
     ] }
   ] },
   { id: "honor-attendants", layout: "two", groups: [
@@ -66,14 +87,16 @@ export const entourage: EntourageRow[] = [
   ] },
   { id: "bearers", layout: "three", groups: [
     { id: "ring-bearer", title: "Ring Bearer", members: [{ name: "Azaiah M. Pellejera" }] },
-    { id: "coin-bearer", title: "Coin Bearer", members: [{ name: "Mathew Quizon" }] },
-    { id: "bible-bearer", title: "Bible Bearer", members: [{ name: "Zion" }] }
+    { id: "coin-bearer", title: "Coin Bearer", members: [{ name: "M Quizon" }] },
+    { id: "bible-bearer", title: "Bible Bearer", members: [{ name: "Zymond Elizan" }] }
   ] },
   { id: "flower-girls", layout: "flowers", groups: [
     { id: "flower-girls-list", title: "Flower Girls", members: [
-      { name: "Kheily Gabriel" }, { name: "Keisha Esmas" },
-      { name: "Elisha Faye Mauricio" }, { name: "Shane Channel Naparan" },
-      { name: "Princess Fronda" }, { name: "Garlene Mye Centro" }
+      { name: "Kheily Jayeanne Gabriel" }, { name: "Keisha Esmas" },
+      { name: "Elisha Faye Mauricio" }, { name: "Liliane Esmira" },
+      { name: "Shane Channel Naparan" }, { name: "Princess Fronda" },
+      { name: "Garlene Mye Centro" }, { name: "Axcel Ea Tolentino" },
+      { name: "Zeane Clarence Liwanag" }
     ] }
   ] }
 ];
