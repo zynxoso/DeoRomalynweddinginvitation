@@ -1,6 +1,6 @@
 # Deo & Romalyn's wedding invitation
 
-A local, responsive wedding invitation built with Next.js App Router, React, TypeScript, Tailwind CSS and Motion. The invitation opens with an animated envelope and includes a curated photo gallery, Philippine-time countdown, calendar download, venue details, dress palette and an explicitly labeled RSVP preview.
+A local, responsive wedding invitation built with Next.js App Router, React, TypeScript, Tailwind CSS and Motion. The invitation opens with an animated envelope and includes a curated photo gallery, Philippine-time countdown, calendar download, venue details, dress palette and an RSVP form with Google Sheets storage and owner email notifications.
 
 ## Run locally
 
@@ -24,7 +24,7 @@ npm start
 
 `config/entourage.ts` contains the confirmed entourage names and roles. The homepage shows this section between the venue details and dress code, with a direct `#entourage` menu link. Keep sponsor pairs together and retain people in every role they hold. Groomsmen and bridesmaids are separate lists, not procession pairings. Parent labels can be edited alongside their names. The section has no database or separate route.
 
-Photographs are in `public/images`. Original sources stay in `WEDDING PICTURES` and `public/PICTURES TO BE REPLACED`, both excluded from Git and deployment. The latest selection follows the owner's ten filename labels and includes three additional poses chosen after reviewing all 40 replacement files. There are 15 gallery photographs, plus the homepage and closing photos. The homepage uses `HOME PAGE BG.jpg` at its supplied 4,608 × 3,072 resolution. Desktop, phone and portrait tablet layouts use separate framing to keep both people visible. The complete source mapping is in `scripts/prepare-assets.mjs`, which preserves source dimensions in quality-96 WebP files. The labeled CR2 uses its embedded full-size 6,000 × 4,000 camera JPEG; it is not a new RAW development. Responsive page images use quality 95, and the viewer loads full-resolution files. No additional facial retouching or generative changes are applied to the supplied images.
+Photographs are in `public/images`. Original sources stay in `WEDDING PICTURES` and `public/PICTURES TO BE REPLACED`, both excluded from Git and deployment. The latest selection follows the owner's ten filename labels and includes three additional poses chosen after reviewing all 40 replacement files. There are 15 gallery photographs, plus the homepage and closing photos. The homepage uses `It was always you.jpg` from the replacement folder. Desktop, phone and portrait tablet layouts use separate framing to keep both people visible. The complete source mapping is in `scripts/prepare-assets.mjs`, which preserves source dimensions in quality-96 WebP files. The labeled CR2 uses its embedded full-size 6,000 × 4,000 camera JPEG; it is not a new RAW development. Responsive page images use quality 95, and the viewer loads full-resolution files. No additional facial retouching or generative changes are applied to the supplied images.
 
 The dress palette follows the owner's six-color reference: blush pink, soft peach, butter yellow, lavender, sky blue and mint cream. The swatches use a balanced three-column, two-row grid on desktop and mobile. Their hex values are editable in `config/wedding.ts`.
 
@@ -32,16 +32,11 @@ The dress palette follows the owner's six-color reference: blush pink, soft peac
 
 ## RSVP status
 
-The RSVP is a preview. It validates names and attendance, previews a response, and prevents repeat preview submissions until the guest edits the form. It sends no requests and stores no guest information in a browser or database. The attendee count remains unavailable because invitation allowances have not been supplied. `POST /api/rsvp` always returns HTTP 503 with an explicit not-sent message.
+The RSVP can save names, attendance and messages to a private Google Sheet and notify the owner by email through Google Apps Script. It requires no paid service or billing setup. Configuration, deployment instructions, service quotas and delivery limitations are in `docs/RSVP-SETUP.md`.
 
-To accept real RSVPs, implement persistent storage before changing the interface:
+Without the three server settings in `.env.example`, the form stays in preview mode and the API returns 503. Live mode acknowledges only confirmed spreadsheet saves, preserves submission IDs across retries, validates requests on both servers, and queues failed email notifications for an hourly retry. Guests do not need Google accounts. This is an open response form, not an authenticated invitation list; attendee counts remain disabled until invitation allowances are supplied.
 
-1. Create private invitation records in a hosted database such as Supabase. Use opaque invitation tokens and a server-owned maximum guest count for each invitation.
-2. Validate request bodies on the server, reusing and extending `lib/rsvp.ts`. Derive invitation limits from the database; do not trust a count or identity sent by the browser.
-3. Add durable duplicate handling using a unique invitation key and a transactional upsert, distributed rate limiting, request size limits, same-origin checks and spam protection.
-4. Keep database credentials in server environment variables. Deny anonymous reads and writes to guest tables. Avoid logging names, notes or tokens.
-5. Connect the form to the route handler with loading, failure and success states. Report success only after the database confirms a save. Require explicit configuration and a health check before enabling live mode.
-6. Test accepted and declined responses, seat limits, duplicate submissions, invalid tokens, database failures and rate limits before removing the preview notice.
+Run `node scripts/check-rsvp.mjs` against a configured local server to check the live form's validation, error/retry behavior and accessibility using intercepted requests that never send guest data to Google. The original `scripts/check-browser.mjs` remains the preview-mode regression check.
 
 ## Checks
 
@@ -62,7 +57,7 @@ Run `node scripts/check-entourage.mjs` to verify the section and keyboard naviga
 
 The source repository is [zynxoso/DeoRomalynweddinginvitation](https://github.com/zynxoso/DeoRomalynweddinginvitation). Vercel deployment has not been configured.
 
-To publish the website, import the repository into Vercel as a Next.js project. Use `npm run build` and the default output directory. Set `NEXT_PUBLIC_SITE_URL` to the final HTTPS origin and redeploy to update social image URLs. A custom domain can be attached through Vercel's project settings. `.env.example` lists the current environment setting. No secrets are required for preview mode.
+To publish the website, import the repository into Vercel as a Next.js project. Use `npm run build` and the default output directory. Set `NEXT_PUBLIC_SITE_URL` to the final HTTPS origin and redeploy to update social image URLs. A custom domain can be attached through Vercel's project settings. `.env.example` lists the environment settings; configure the RSVP server values separately on the host. No secrets are required for preview mode.
 
 The invitation uses `noindex` because it contains personal photos and event details. This is a search-engine preference, not access control. The social sharing preview still works when the link is shared. There are no analytics, audio autoplay, remote stock photos or invented venue map links.
 

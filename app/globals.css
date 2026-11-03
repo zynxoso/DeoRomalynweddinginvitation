@@ -120,6 +120,7 @@ p { color:var(--muted); }
 .venue-connector { position:absolute; z-index:2; left:50%; top:46%; transform:translate(-50%,-50%); width:58px; height:58px; display:grid; place-items:center; border:1px solid #d8dccf; background:var(--ivory); border-radius:50%; font:italic 32px var(--font-serif); color:#768567; }
 .venue-note { text-align:center; margin-top:25px; font-size:11px; }
 .entourage { border-bottom:1px solid var(--line); }
+.rsvp-fields { border:0; margin:0; padding:0; min-width:0; }
 .entourage-container { max-width:960px; }
 .entourage-heading { position:relative; padding-top:112px; margin-bottom:42px; }
 .entourage-botanical { position:absolute; width:90px; top:-18px; left:50%; transform:translateX(-50%) rotate(12deg); }

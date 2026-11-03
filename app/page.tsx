@@ -8,8 +8,12 @@ import { Countdown } from "@/components/countdown";
 import { Gallery } from "@/components/gallery";
 import { RsvpForm } from "@/components/rsvp-form";
 import { EntourageSection } from "@/components/entourage-section";
+import { rsvpConfigured } from "@/lib/rsvp-delivery";
+import { connection } from "next/server";
 
-export default function Home() {
+export default async function Home() {
+  await connection();
+  const rsvpEnabled = rsvpConfigured();
   return <InvitationShell><main id="main">
     <section id="home" className="hero">
       <div className="hero-backdrop"><Image src={wedding.photos.hero.src} alt={wedding.photos.hero.alt} fill loading="eager" fetchPriority="high" quality={95} sizes="(max-width: 760px) 173vw, (max-width: 1050px) 150vw, 100vw" /></div>
@@ -30,7 +34,7 @@ export default function Home() {
 
     <section id="dress-code" className="dress-code section-container section-space"><Reveal className="dress-layout"><div className="dress-illustration"><Botanical /><span>Soft shades,<br /><em>lovely company.</em></span></div><div className="dress-copy"><p className="eyebrow">A pastel garden celebration</p><h2>Come dressed<br /><em>in a little romance.</em></h2><p>{wedding.dressCode} Think flowing fabrics, light suits, and colors that feel at home in a garden.</p><div className="swatches">{wedding.palette.map(color => <div key={color.name}><span style={{ backgroundColor: color.hex }} /><small>{color.name}</small></div>)}</div><p className="dress-note">Choose a shade you love and something you feel good in.</p></div></Reveal></section>
 
-    <section id="rsvp" className="rsvp-section section-space"><div className="section-container rsvp-layout"><Reveal className="rsvp-copy"><span className="rsvp-script">Will you join us?</span><h2>A place in our day.<br /><em>A place in our hearts.</em></h2><p>We would love to celebrate with you. Online RSVP will open here once the invitation details are ready.</p><p className="rsvp-contact">For now, please contact us directly to let us know if you can make it.</p><div className="rsvp-signature">{wedding.names.first} <i>&</i> {wedding.names.second}</div><Botanical className="rsvp-flower" /></Reveal><Reveal delay={0.1}><RsvpForm /></Reveal></div></section>
+    <section id="rsvp" className="rsvp-section section-space"><div className="section-container rsvp-layout"><Reveal className="rsvp-copy"><span className="rsvp-script">Will you join us?</span><h2>A place in our day.<br /><em>A place in our hearts.</em></h2><p>We would love to celebrate with you. {rsvpEnabled ? "Please let us know whether you can join us using the form." : "Online RSVP will open here once the invitation details are ready."}</p><p className="rsvp-contact">{rsvpEnabled ? "Need to change your response? Please contact us directly." : "For now, please contact us directly to let us know if you can make it."}</p><div className="rsvp-signature">{wedding.names.first} <i>&</i> {wedding.names.second}</div><Botanical className="rsvp-flower" /></Reveal><Reveal delay={0.1}><RsvpForm enabled={rsvpEnabled} /></Reveal></div></section>
 
     <section className="closing section-container section-space"><Reveal className="closing-photo"><Image src={wedding.photos.closing.src} alt={wedding.photos.closing.alt} fill quality={95} sizes="(max-width: 760px) 100vw, 70vw" /></Reveal><Reveal className="closing-copy"><Flower2 size={28} strokeWidth={1} /><h2>We can&apos;t wait<br /><em>to see you.</em></h2><p>{wedding.closing}</p><span className="closing-names">{wedding.names.first} & {wedding.names.second}</span><span className="closing-date">{wedding.dateLabel}</span></Reveal></section>
   </main></InvitationShell>;
