@@ -2,17 +2,17 @@
 
 The couple's photographs were supplied by the owner. Sources are preserved in `WEDDING PICTURES` and `public/PICTURES TO BE REPLACED`; both folders are excluded from Git and deployment. The production site uses seventeen WebP photographs: fifteen gallery entries, one homepage background and one closing photograph. A social preview uses the updated seated portrait. WebP exports retain the supplied dimensions at quality 96; responsive page versions use quality 95. The viewer loads the native-resolution file directly. Changed photos have new URLs to avoid cached older exports. No additional facial retouching or generation was performed.
 
-The October 26 selection follows every labeled replacement:
+The selection follows the labeled replacements, with the November 3 homepage swap requested by the owner:
 
 | Site placement/caption | Supplied source |
 | --- | --- |
-| Homepage background | HOME PAGE BG.jpg |
+| Homepage background | It was always you.jpg |
 | Hand in hand. | Hand in hand..CR2 |
 | The little moments. | The little moments.jpg |
 | Right here with you. | Right here with you.jpg |
 | Our kind of afternoon. | Our kind of afternoon.jpg |
 | A moment for us. | A moment for us.jpg |
-| It was always you. | It was always you.jpg |
+| It was always you. | MEITU_20261025_091605848.jpg |
 | Close to you. | CLOSE TO YOU.jpg |
 | My favorite person. | MY FAVORITE PERSON.jpg |
 | With all my love. | WITH ALL MY LOVE.jpg |

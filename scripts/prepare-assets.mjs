@@ -14,7 +14,7 @@ const selection = [
   ['Our kind of afternoon.jpg', 'forest-v2'],
   ['A moment for us.jpg', 'blue-v2'],
   ['MEITU_20261025_085532158.jpg', 'together-v2'],
-  ['HOME PAGE BG.jpg', 'forest-wedding-v2'],
+  ['MEITU_20261025_091605848.jpg', 'bouquet-moment'],
   ['CAMP JOHN HAY - WHITE/IMG_3956.jpg', 'ring-detail', 'WEDDING PICTURES'],
   ['MEITU_20261025_073432262.jpg', 'veil-v2'],
   ['CLOSE TO YOU.jpg', 'pink-embrace-v2'],

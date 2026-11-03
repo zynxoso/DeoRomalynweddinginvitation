@@ -21,14 +21,14 @@ export const wedding = {
   dressCode: "Formal or semi-formal attire in soft pastel colors.",
   rsvp: { mode: "preview" as const, deadline: null, allowedGuests: null as number | null },
   photos: {
-    hero: { src: "/images/high-resolution/forest-wedding-v2.webp", alt: "Deo and Romalyn holding hands and looking at each other among the pine trees, dressed in white.", caption: "Together, always." },
+    hero: { src: "/images/high-resolution/hero-v2.webp", alt: "Romalyn leaning on Deo as he kisses her forehead on a garden bench.", caption: "Together, always." },
     gallery: [
       { src: "/images/high-resolution/garden-walk-v2.webp", alt: "Deo bowing to kiss Romalyn's hand on a garden stairway in matching blush outfits.", caption: "Hand in hand." },
       { src: "/images/high-resolution/laughter-v2.webp", alt: "Deo and Romalyn laughing together on a garden bench in white outfits.", caption: "The little moments." },
       { src: "/images/high-resolution/pink-portrait-v2.webp", alt: "Romalyn resting her head on Deo's shoulder with a bouquet of pink roses.", caption: "Right here with you." },
       { src: "/images/high-resolution/forest-v2.webp", alt: "Deo and Romalyn sitting back to back on a sunlit forest lawn.", caption: "Our kind of afternoon." },
       { src: "/images/high-resolution/blue-v2.webp", alt: "Deo and Romalyn touching foreheads among the pine trees in powder blue outfits.", caption: "A moment for us." },
-      { src: "/images/high-resolution/hero-v2.webp", alt: "Romalyn leaning on Deo as he kisses her forehead on a garden bench.", caption: "It was always you." },
+      { src: "/images/high-resolution/bouquet-moment.webp", alt: "Romalyn holding her bouquet beside Deo's face as they look at each other among the pine trees.", caption: "It was always you." },
       { src: "/images/high-resolution/ring-detail.webp", alt: "A close view of Romalyn's ring as her hand rests on Deo's shoulder.", caption: "A promise to keep." },
       { src: "/images/high-resolution/veil-v2.webp", alt: "Romalyn laughing beside Deo as her veil lifts in the air among the pine trees.", caption: "You make me smile." },
       { src: "/images/high-resolution/pink-embrace-v2.webp", alt: "Deo and Romalyn holding each other beside a tree in matching pink outfits.", caption: "Close to you." },
