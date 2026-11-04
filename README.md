@@ -20,7 +20,7 @@ npm start
 
 ## Edit wedding details
 
-`config/wedding.ts` contains the names, date, timezone, venue names, event times, verified map links, invitation messages, selected photographs, dress palette and RSVP settings. Event times and maps remain `null` until confirmed. The calendar intentionally creates an all-day event. The countdown targets the start of December 23, 2026 in Asia/Manila, not an invented ceremony time.
+`config/wedding.ts` contains the names, date, timezone, venue names, event times, map links, invitation messages, selected photographs, dress palette and RSVP settings. The reception uses the couple's supplied Google Maps embed and directions link for Luntiang Oasis Farm and Resort. The map loads lazily in a responsive panel below the venue cards. Event times and the ceremony map remain `null` until confirmed. The calendar intentionally creates an all-day event. The countdown targets the start of December 23, 2026 in Asia/Manila, not an invented ceremony time.
 
 `config/entourage.ts` contains the confirmed entourage names and roles. The homepage shows this section between the venue details and dress code, with a direct `#entourage` menu link. Keep sponsor pairs together and retain people in every role they hold. Groomsmen and bridesmaids are separate lists, not procession pairings. Parent labels can be edited alongside their names. The section has no database or separate route.
 

@@ -8,4 +8,5 @@ export interface WeddingVenue {
   name: string;
   time: string | null;
   mapsUrl: string | null;
+  mapsEmbedUrl?: string;
 }

@@ -14,7 +14,12 @@ export const wedding = {
   headerDate: new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: timezone }).format(dateValue).toUpperCase(),
   dateNumerals: [date.slice(5, 7), date.slice(8, 10), date.slice(2, 4)],
   ceremony: { name: "Luntian Garden", time: null, mapsUrl: null } as WeddingVenue,
-  reception: { name: "Luntiang Oasis Farm and Resort", time: null, mapsUrl: null } as WeddingVenue,
+  reception: {
+    name: "Luntiang Oasis Farm and Resort",
+    time: null,
+    mapsUrl: "https://maps.app.goo.gl/2NfUvH8hsxkbM18s8",
+    mapsEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3841.6369686490752!2d120.73993081175439!3d15.664308584895295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33912d63ac99c8a9%3A0xed62f2ed60bafbc5!2sLuntiang%20Oasis%20Farm%20and%20Resort!5e0!3m2!1sen!2sph!4v1793773220400!5m2!1sen!2sph"
+  } satisfies WeddingVenue,
   welcome: "Together with our families, we invite you to celebrate our wedding.",
   story: "A few of our favorite moments, and a new one to look forward to with you.",
   closing: "The day will be all the more special with you there. Thank you for being part of our lives and this next chapter.",
