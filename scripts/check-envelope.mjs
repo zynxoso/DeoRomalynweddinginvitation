@@ -1,6 +1,7 @@
 import { chromium } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import assert from 'node:assert/strict';
+import sharp from 'sharp';
 import { mkdir, writeFile } from 'node:fs/promises';
 await mkdir('.review/envelope', { recursive: true });
 const browser = await chromium.launch({ channel: 'chrome', headless: true });
@@ -24,14 +25,19 @@ try {
      const title=document.getElementById('entrance-title');
      const stage=document.querySelector('.envelope-stage');
      const m=new DOMMatrix(getComputedStyle(letter).transform);
-     window.envelopeFrames.push({open:e.classList.contains('is-opening'),y:m.m42,letterTop:letter.getBoundingClientRect().top,titleBottom:title.getBoundingClientRect().bottom,stageTop:stage.getBoundingClientRect().top,flapZ:getComputedStyle(e.querySelector('.envelope-flap')).zIndex});
+     const flapStyle=getComputedStyle(e.querySelector('.envelope-flap'));
+     window.envelopeFrames.push({open:e.classList.contains('is-opening'),y:m.m42,letterTop:letter.getBoundingClientRect().top,titleBottom:title.getBoundingClientRect().bottom,stageTop:stage.getBoundingClientRect().top,flapZ:flapStyle.zIndex,flapY:new DOMMatrix(flapStyle.transform).m22});
     }
     requestAnimationFrame(sample);
    };requestAnimationFrame(sample);
   });
   await page.getByRole('button',{name:'Open invitation',exact:true}).click();
   await page.waitForTimeout(1350);
-  await page.screenshot({path:`.review/envelope/${width}-open.png`});
+  const box=await page.locator('.envelope').boundingBox();
+  const pixels=await page.screenshot({path:`.review/envelope/${width}-open.png`});
+  const {data,info}=await sharp(pixels).removeAlpha().raw().toBuffer({resolveWithObject:true});
+  const offset=(Math.floor(box.y+box.height*.1)*info.width+Math.floor(box.x+box.width/2))*info.channels;
+  assert.ok(data[offset]>248 && data[offset+1]>245 && data[offset+2]>240,`Opaque envelope front covers the letter at ${width}`);
   await page.getByRole('dialog').waitFor({state:'hidden'});
   const frames=await page.evaluate(()=>window.envelopeFrames);
   assert.ok(frames.length>20);
@@ -40,7 +46,8 @@ try {
   assert.ok(frames.every(f=>f.stageTop>=f.titleBottom),`Flap area overlaps heading at ${width}`);
   assert.ok(frames.at(-1).y<=-89);
   for(let i=1;i<frames.length;i++)assert.ok(frames[i].y<=frames[i-1].y+0.5,`Letter reverses at ${width}`);
-  assert.equal(frames.at(-1).flapZ,'0');
+  assert.equal(frames.at(-1).flapZ,'1');
+  assert.ok(frames.filter(f=>f.y<-5).every(f=>f.flapY<-.95),`Letter emerges before flap opens at ${width}`);
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
   await page.getByRole('button',{name:'Open the envelope again'}).click();
   assert.equal(await page.locator('.envelope.is-opening').count(),0);

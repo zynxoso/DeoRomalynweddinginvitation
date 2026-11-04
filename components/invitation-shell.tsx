@@ -48,7 +48,18 @@ export function InvitationShell({ children }: { children: React.ReactNode }) {
       <Botanical className="entrance-flower-left" /><Botanical className="entrance-flower-right" />
       <div className="entrance-top"><span className="monogram">D<span>&</span>R</span><span>A WEDDING INVITATION</span></div>
       <div className="entrance-content"><p className="eyebrow">For you, with love</p><h1 id="entrance-title">A beautiful day.<br /><em>Our favorite people.</em></h1>
-        <div className="envelope-stage" aria-hidden="true"><div className={`envelope ${opening ? "is-opening" : ""}`}><div className="envelope-letter"><span>Deo & Romalyn</span><small>{wedding.dateLabel}</small></div><div className="envelope-back" /><div className="envelope-front" /><div className="envelope-flap" /><div className="wax-seal">D<span>&</span>R</div></div></div>
+        <div className="envelope-stage" aria-hidden="true">
+          <div className={`envelope ${opening ? "is-opening" : ""}`}>
+            <div className="envelope-back" />
+            <svg className="envelope-flap" viewBox="0 0 340 115" preserveAspectRatio="none"><path d="M0 0H340L170 115Z" fill="#e3e9da" stroke="#c7cfbb" /></svg>
+            <div className="envelope-letter"><span>Deo & Romalyn</span><small>{wedding.dateLabel}</small></div>
+            <svg className="envelope-front" viewBox="0 0 340 205" preserveAspectRatio="none">
+              <path d="M0 0L170 109L340 0V205H0Z" fill="#e8ecdf" stroke="#c7cfbb" />
+              <path d="M0 205L140 109Q170 89 200 109L340 205" fill="#e2e8d8" stroke="#c7cfbb" />
+            </svg>
+            <div className="wax-seal">D<span>&</span>R</div>
+          </div>
+        </div>
         <button ref={openButton} onClick={() => setOpening(true)} disabled={opening} className="button primary">{opening ? "With love…" : "Open invitation"}<ArrowUpRight size={16} /></button>
         <button ref={skipButton} className="entrance-skip" onClick={() => setEntrance(false)}>View invitation</button>
       </div><p className="entrance-date">{wedding.dayLabel} <span>·</span> {wedding.dateLabel}</p>
