@@ -38,7 +38,7 @@ export const entourage: EntourageRow[] = [
   ] },
   { id: "principal-sponsors", title: "Principal Sponsors", layout: "two", groups: [
     { id: "ninong", title: "Ninong", members: [
-      { name: "Francico Gabriel" }, { name: "Michael Fausino" },
+      { name: "Francisco Gabriel" }, { name: "Michael Faustino" },
       { name: "Emilio Pacheco" }, { name: "Cristito Garbin" },
       { name: "Allan Mejia" }, { name: "Victorino Pader" },
       { name: "Eric Julian" }, { name: "Adriano Catalan" },

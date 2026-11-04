@@ -37,7 +37,7 @@ try {
       ['Candle Sponsors', ['Rosemarie Sabatin', 'Michael Santiago']],
       ['Veil Sponsors', ['Jhigie Magbalot', 'Jan Harry Madrona']],
       ['Cord Sponsors', ['Melody Grace Pacheco', 'Kevin Genzola']],
-      ['Ninong', ['Francico Gabriel', 'Michael Fausino', 'Emilio Pacheco', 'Cristito Garbin', 'Allan Mejia', 'Victorino Pader', 'Eric Julian', 'Adriano Catalan', 'Fernando Mangalindan', 'Teodoro Pagaduan', 'Rady Encarnacion', 'Joven Calunsag', 'Gil Ventura', 'Ver Valdez']],
+      ['Ninong', ['Francisco Gabriel', 'Michael Faustino', 'Emilio Pacheco', 'Cristito Garbin', 'Allan Mejia', 'Victorino Pader', 'Eric Julian', 'Adriano Catalan', 'Fernando Mangalindan', 'Teodoro Pagaduan', 'Rady Encarnacion', 'Joven Calunsag', 'Gil Ventura', 'Ver Valdez']],
       ['Ninang', ['Rosallie Gabriel', 'Maria Rosario Faustino', 'Baby Esmas', 'Josie Tolentino', 'Lina Nonato', 'Marieta Mallari', 'Pinky Guilermo', 'Eunice Catalan', 'Angie Lozano', 'Ofelia Ongan', 'Ofelia Liwanag', 'Rosalie Calunsag', 'Maria Luisa Barawid', 'Marivic Reyes']],
       ['Coin Bearer', ['M Quizon']],
       ['Bible Bearer', ['Zymond Elizan']],
