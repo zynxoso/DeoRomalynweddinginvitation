@@ -4,8 +4,8 @@ import { galleryPhotos } from '../config/gallery.ts';
 
 const source = 'public/picture replace now';
 const files = (await readdir(source)).filter(name => /\.(jpe?g|png|webp)$/i.test(name)).sort();
-if (JSON.stringify(files) !== JSON.stringify(galleryPhotos.map(photo => photo.source).sort())) {
-  throw new Error('Gallery configuration must include every supplied photograph exactly once.');
+if (galleryPhotos.some(photo => !files.includes(photo.source)) || new Set(galleryPhotos.map(photo => photo.src)).size !== galleryPhotos.length) {
+  throw new Error('Every selected photograph must exist and have a unique output path.');
 }
 await mkdir('public/images/gallery', { recursive: true });
 for (const photo of galleryPhotos) {

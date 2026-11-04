@@ -44,7 +44,8 @@ export const entourage: EntourageRow[] = [
       { name: "Eric Julian" }, { name: "Adriano Catalan" },
       { name: "Fernando Mangalindan" }, { name: "Teodoro Pagaduan" },
       { name: "Rady Encarnacion" }, { name: "Joven Calunsag" },
-      { name: "Gil Ventura" }, { name: "Ver Valdez" }
+      { name: "Gil Ventura" }, { name: "Ver Valdez" },
+      { name: "Artemio Capulong" }
     ] },
     { id: "ninang", title: "Ninang", members: [
       { name: "Rosallie Gabriel" }, { name: "Maria Rosario Faustino" },
@@ -53,7 +54,8 @@ export const entourage: EntourageRow[] = [
       { name: "Pinky Guilermo" }, { name: "Eunice Catalan" },
       { name: "Angie Lozano" }, { name: "Ofelia Ongan" },
       { name: "Ofelia Liwanag" }, { name: "Rosalie Calunsag" },
-      { name: "Maria Luisa Barawid" }, { name: "Marivic Reyes" }
+      { name: "Maria Luisa Barawid" }, { name: "Marivic Reyes" },
+      { name: "Genoveva Langcay" }
     ] }
   ] },
   { id: "honor-attendants", layout: "two", groups: [

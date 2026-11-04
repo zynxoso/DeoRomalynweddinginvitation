@@ -1,6 +1,6 @@
 import type { WeddingPhoto } from "@/types/wedding";
 
-// Every photograph supplied in public/picture replace now, in filename order.
+// Selected photographs and labeled replacements from public/picture replace now.
 export const galleryPhotos = [
   {
     "source": "MEITU_20261020_074339521.jpg",
@@ -12,31 +12,31 @@ export const galleryPhotos = [
     "position": "50% 60%"
   },
   {
-    "source": "MEITU_20261020_122731543.jpg",
-    "src": "/images/gallery/MEITU_20261020_122731543.webp",
+    "source": "A quiet moment..jpg",
+    "src": "/images/gallery/quiet-moment-v2.webp",
     "width": 4608,
     "height": 3072,
-    "alt": "Deo and Romalyn sitting together inside a wooden garden gazebo.",
+    "alt": "Deo and Romalyn holding hands in matching blue outfits at night.",
     "caption": "A quiet moment.",
     "position": "50% 50%"
   },
   {
-    "source": "MEITU_20261020_131949565.jpg",
-    "src": "/images/gallery/MEITU_20261020_131949565.webp",
-    "width": 4608,
-    "height": 3072,
-    "alt": "Romalyn smiling at Deo beside red garden flowers in matching pink outfits.",
+    "source": "Right here with you..jpg",
+    "src": "/images/gallery/right-here-v2.webp",
+    "width": 2048,
+    "height": 1365,
+    "alt": "Deo holding Romalyn close in white wedding outfits among pine trees.",
     "caption": "Right here with you.",
-    "position": "50% 55%"
+    "position": "50% 50%"
   },
   {
-    "source": "MEITU_20261020_133144022.jpg",
-    "src": "/images/gallery/MEITU_20261020_133144022.webp",
-    "width": 4608,
-    "height": 3072,
-    "alt": "Deo and Romalyn embracing on a garden stairway surrounded by flowers.",
+    "source": "Among the flowers.jpg",
+    "src": "/images/gallery/among-flowers-v2.webp",
+    "width": 1366,
+    "height": 2049,
+    "alt": "Deo and Romalyn smiling together beside a railing in the pine forest.",
     "caption": "Among the flowers.",
-    "position": "50% 60%"
+    "position": "50% 50%"
   },
   {
     "source": "MEITU_20261020_134407605.jpg",
