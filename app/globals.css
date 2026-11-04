@@ -96,6 +96,10 @@ p { color:var(--muted); }
 .gallery-item { min-width:0; }
 .gallery-item { grid-column:span 2; }
 .gallery-item:nth-child(5n+1),.gallery-item:nth-child(5n+2) { grid-column:span 3; }
+@media (min-width:761px) {
+  .gallery-item:nth-last-child(2):nth-child(5n+3) { grid-column:2 / span 2; }
+  .gallery-item:last-child:nth-child(5n+4) { grid-column:4 / span 2; }
+}
 .gallery-item button { display:block; position:relative; width:100%; aspect-ratio:1.46; overflow:hidden; border:0; background:#e8e7dc; }
 .gallery-item button { aspect-ratio:.95; }
 .gallery-item:nth-child(5n+1) button,.gallery-item:nth-child(5n+2) button { aspect-ratio:1.46; }

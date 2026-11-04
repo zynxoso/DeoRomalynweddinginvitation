@@ -2,6 +2,7 @@ import { chromium } from '@playwright/test';
 import sharp from 'sharp';
 import assert from 'node:assert/strict';
 import { mkdir, writeFile } from 'node:fs/promises';
+import { galleryPhotos } from '../config/gallery.ts';
 
 await mkdir('.review', { recursive: true });
 const browser = await chromium.launch({ channel: 'chrome', headless: true });
@@ -28,7 +29,7 @@ try {
     await page.screenshot({ path: `.review/photo-hero-${width}-${height}.png` });
 
     const photos = page.locator('.gallery-item button');
-    assert.equal(await photos.count(), 15);
+    assert.equal(await photos.count(), galleryPhotos.length);
     for (let i = 0; i < await photos.count(); i++) {
       await photos.nth(i).scrollIntoViewIfNeeded();
       await photos.nth(i).locator('img').evaluate(img => img.decode());
@@ -38,10 +39,10 @@ try {
     const enlarged = await page.locator('.lightbox-image img').evaluate(img => ({
       width: img.naturalWidth, height: img.naturalHeight, src: img.currentSrc
     }));
-    assert.equal(enlarged.width, 3072);
-    assert.equal(enlarged.height, 4608);
-    assert.equal(await page.getByRole('link', { name: 'View full-resolution photo' }).getAttribute('href'), '/images/high-resolution/pine-bench.webp');
-    report.push({ viewport: { width, height }, deviceScaleFactor: 2, deliveredHero: { width: image.width, height: image.height }, requiredHeroWidth: requiredWidth, galleryPhotos: 15, enlarged });
+    assert.equal(enlarged.width, galleryPhotos.at(-1).width);
+    assert.equal(enlarged.height, galleryPhotos.at(-1).height);
+    assert.equal(await page.getByRole('link', { name: 'View full-resolution photo' }).getAttribute('href'), galleryPhotos.at(-1).src);
+    report.push({ viewport: { width, height }, deviceScaleFactor: 2, deliveredHero: { width: image.width, height: image.height }, requiredHeroWidth: requiredWidth, galleryPhotos: galleryPhotos.length, enlarged });
     await page.keyboard.press('Escape');
     if (width === 1440) await page.locator('#our-moments').screenshot({ path: '.review/expanded-gallery.png' });
     await page.locator('.swatches').scrollIntoViewIfNeeded();

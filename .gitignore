@@ -8,5 +8,6 @@ node_modules/
 .review/
 WEDDING PICTURES/
 public/PICTURES TO BE REPLACED/
+public/picture replace now/
 playwright-report/
 test-results/
