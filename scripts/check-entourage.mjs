@@ -29,19 +29,21 @@ try {
     if (width <= 1050) assert.equal(await page.getByRole('button', { name: 'Open menu' }).isVisible(), true);
     await page.waitForTimeout(width === 1440 ? 1200 : 100);
     const section = page.locator('#entourage');
-    assert.equal(await section.locator('.entourage-name').count(), 72);
-    assert.equal(await section.getByRole('heading', { level: 3 }).count(), 15);
+    assert.equal(await section.locator('.entourage-name').count(), 74);
+    assert.equal(await section.getByRole('heading', { level: 3 }).count(), 16);
     assert.equal(await section.getByRole('heading', { level: 4 }).count(), 2);
     assert.deepEqual(await section.evaluate(el => [el.previousElementSibling?.id, el.nextElementSibling?.id]), ['the-day', 'dress-code']);
     for (const [role, names] of [
       ['Candle Sponsors', ['Rosemarie Sabatin', 'Michael Santiago']],
       ['Veil Sponsors', ['Jhigie Magbalot', 'Jan Harry Madrona']],
       ['Cord Sponsors', ['Melody Grace Pacheco', 'Kevin Genzola']],
-      ['Ninong', ['Francisco Gabriel', 'Michael Faustino', 'Emilio Pacheco', 'Cristito Garbin', 'Allan Mejia', 'Victorino Pader', 'Eric Julian', 'Adriano Catalan', 'Fernando Mangalindan', 'Teodoro Pagaduan', 'Rady Encarnacion', 'Joven Calunsag', 'Gil Ventura', 'Ver Valdez', 'Artemio Capulong']],
+      ['Ninong', ['Francisco Gabriel', 'Michael Faustino', 'Emilio Pacheco', 'Cristeto Garbin', 'Allan Mejia', 'Victorino Pader', 'Eric Julian', 'Adriano Catalan', 'Fernando Mangalindan', 'Teodoro Pagaduan', 'Rady Encarnacion', 'Joven Calunsag', 'Gil Ventura', 'Ver Valdez', 'Artemio Capulong', 'Domingo De Guzman']],
       ['Ninang', ['Rosallie Gabriel', 'Maria Rosario Faustino', 'Baby Esmas', 'Josie Tolentino', 'Lina Nonato', 'Marieta Mallari', 'Pinky Guilermo', 'Eunice Catalan', 'Angie Lozano', 'Ofelia Ongan', 'Ofelia Liwanag', 'Rosalie Calunsag', 'Maria Luisa Barawid', 'Marivic Reyes', 'Genoveva Langcay']],
-      ['Coin Bearer', ['M Quizon']],
+      ['Flower Girl Escorts', ['Ethan Angelo Valdez', 'Joseph Mauricio']],
+      ['Bridesmaids', ['Rosemarie Sabatin', 'Jhigie Magbalot', 'Rhea Apostol', 'Alexis Tolentino', 'Ronalyn Paginag', 'Melody Grace Pacheco', 'Sheila Mae Pader', 'Thyrnne Miel Martinez', 'Zeane Clarenze Liwanag']],
+      ['Coin Bearer', ['Achilles Mon Quizon']],
       ['Bible Bearer', ['Zymond Elizan']],
-      ['Flower Girls', ['Kheily Jayeanne Gabriel', 'Keisha Esmas', 'Elisha Faye Mauricio', 'Liliane Esmira', 'Shane Channel Naparan', 'Princess Fronda', 'Garlene Mye Centro', 'Axcel Ea Tolentino', 'Zeane Clarence Liwanag']]
+      ['Flower Girls', ['Kheily Jayeanne Gabriel', 'Elisha Faye Mauricio', 'Liliane Esmira', 'Shane Channel Naparan', 'Princess Fronda', 'Garlene Mye Centro', 'Axcel Ea Tolentino']]
     ]) assert.deepEqual(await section.getByRole('region', { name: role, exact: true }).locator('.entourage-name').allTextContents(), names);
     for (const group of await section.locator('.entourage-row-title, .entourage-group').all()) {
       await group.scrollIntoViewIfNeeded();
@@ -54,7 +56,7 @@ try {
     await section.screenshot({ path: `.review/entourage-${width}.png` });
     const audit = await new AxeBuilder({ page }).include('#entourage').withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
     assert.equal(audit.violations.length, 0, JSON.stringify(audit.violations));
-    results.push({ width, names: 72, roleGroups: 16, accessibilityViolations: 0, keyboardNavigation: 'passed', nameOverflow: false });
+    results.push({ width, names: 74, roleGroups: 17, accessibilityViolations: 0, keyboardNavigation: 'passed', nameOverflow: false });
     await context.close();
   }
   assert.deepEqual(errors, []);

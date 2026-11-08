@@ -210,12 +210,12 @@ export const galleryPhotos = [
     "position": "50% 55%"
   },
   {
-    "source": "MEITU_20261025_164327423.jpg",
-    "src": "/images/gallery/MEITU_20261025_164327423.webp",
+    "source": "MEITU_20261025_180555147.jpg",
+    "src": "/images/gallery/more-memories-v2.webp",
     "width": 4608,
     "height": 3072,
-    "alt": "Deo and Romalyn standing hand in hand beside a tree and dinosaur display at night.",
+    "alt": "Deo and Romalyn holding hands in their white wedding outfits on a pine-lined road.",
     "caption": "More memories to make.",
-    "position": "50% 55%"
+    "position": "50% 50%"
   }
 ] satisfies (WeddingPhoto & { source: string; width: number; height: number })[];

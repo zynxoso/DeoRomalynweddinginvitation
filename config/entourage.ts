@@ -39,13 +39,13 @@ export const entourage: EntourageRow[] = [
   { id: "principal-sponsors", title: "Principal Sponsors", layout: "two", groups: [
     { id: "ninong", title: "Ninong", members: [
       { name: "Francisco Gabriel" }, { name: "Michael Faustino" },
-      { name: "Emilio Pacheco" }, { name: "Cristito Garbin" },
+      { name: "Emilio Pacheco" }, { name: "Cristeto Garbin" },
       { name: "Allan Mejia" }, { name: "Victorino Pader" },
       { name: "Eric Julian" }, { name: "Adriano Catalan" },
       { name: "Fernando Mangalindan" }, { name: "Teodoro Pagaduan" },
       { name: "Rady Encarnacion" }, { name: "Joven Calunsag" },
       { name: "Gil Ventura" }, { name: "Ver Valdez" },
-      { name: "Artemio Capulong" }
+      { name: "Artemio Capulong" }, { name: "Domingo De Guzman" }
     ] },
     { id: "ninang", title: "Ninang", members: [
       { name: "Rosallie Gabriel" }, { name: "Maria Rosario Faustino" },
@@ -73,7 +73,8 @@ export const entourage: EntourageRow[] = [
       { name: "Rosemarie Sabatin" }, { name: "Jhigie Magbalot" },
       { name: "Rhea Apostol" }, { name: "Alexis Tolentino" },
       { name: "Ronalyn Paginag" }, { name: "Melody Grace Pacheco" },
-      { name: "Sheila Mae Pader" }, { name: "Thyrnne Miel Martinez" }
+      { name: "Sheila Mae Pader" }, { name: "Thyrnne Miel Martinez" },
+      { name: "Zeane Clarenze Liwanag" }
     ] }
   ] },
   { id: "sponsors", layout: "three", groups: [
@@ -89,16 +90,20 @@ export const entourage: EntourageRow[] = [
   ] },
   { id: "bearers", layout: "three", groups: [
     { id: "ring-bearer", title: "Ring Bearer", members: [{ name: "Azaiah M. Pellejera" }] },
-    { id: "coin-bearer", title: "Coin Bearer", members: [{ name: "M Quizon" }] },
+    { id: "coin-bearer", title: "Coin Bearer", members: [{ name: "Achilles Mon Quizon" }] },
     { id: "bible-bearer", title: "Bible Bearer", members: [{ name: "Zymond Elizan" }] }
   ] },
   { id: "flower-girls", layout: "flowers", groups: [
     { id: "flower-girls-list", title: "Flower Girls", members: [
-      { name: "Kheily Jayeanne Gabriel" }, { name: "Keisha Esmas" },
+      { name: "Kheily Jayeanne Gabriel" },
       { name: "Elisha Faye Mauricio" }, { name: "Liliane Esmira" },
       { name: "Shane Channel Naparan" }, { name: "Princess Fronda" },
-      { name: "Garlene Mye Centro" }, { name: "Axcel Ea Tolentino" },
-      { name: "Zeane Clarence Liwanag" }
+      { name: "Garlene Mye Centro" }, { name: "Axcel Ea Tolentino" }
+    ] }
+  ] },
+  { id: "flower-girl-escorts", layout: "flowers", groups: [
+    { id: "flower-girl-escorts-list", title: "Flower Girl Escorts", members: [
+      { name: "Ethan Angelo Valdez" }, { name: "Joseph Mauricio" }
     ] }
   ] }
 ];
