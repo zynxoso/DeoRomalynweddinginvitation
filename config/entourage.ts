@@ -51,7 +51,7 @@ export const entourage: EntourageRow[] = [
       { name: "Rosallie Gabriel" }, { name: "Maria Rosario Faustino" },
       { name: "Baby Esmas" }, { name: "Josie Tolentino" },
       { name: "Lina Nonato" }, { name: "Marieta Mallari" },
-      { name: "Pinky Guilermo" }, { name: "Eunice Catalan" },
+      { name: "Pinky Guillero" }, { name: "Eunice Catalan" },
       { name: "Angie Lozano" }, { name: "Ofelia Ongan" },
       { name: "Ofelia Liwanag" }, { name: "Rosalie Calunsag" },
       { name: "Maria Luisa Barawid" }, { name: "Marivic Reyes" },
@@ -96,8 +96,8 @@ export const entourage: EntourageRow[] = [
   { id: "flower-girls", layout: "flowers", groups: [
     { id: "flower-girls-list", title: "Flower Girls", members: [
       { name: "Kheily Jayeanne Gabriel" },
-      { name: "Elisha Faye Mauricio" }, { name: "Liliane Esmira" },
-      { name: "Shane Channel Naparan" }, { name: "Princess Fronda" },
+      { name: "Elisha Faye Mauricio" }, { name: "Laiane Crish Semira" },
+      { name: "Shane Channel Naparan" }, { name: "Chiara Joyce Fronda" },
       { name: "Garlene Mye Centro" }, { name: "Axcel Ea Tolentino" }
     ] }
   ] },
